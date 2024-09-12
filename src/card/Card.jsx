@@ -5,7 +5,6 @@ import Context from '../ContextGenres/ContextGenres.js';
 import RateStars from '../rate/Rate';
 import './Card.css';
 
-// Реализовать обработку отсутствия сети
 const MovieCard = ({ movies, loading, error, onRatingChange }) => {
   if (loading) {
     return (
@@ -76,7 +75,7 @@ const MovieCard = ({ movies, loading, error, onRatingChange }) => {
                       </span>
                     </Typography.Title>
                     <span>{movie.release_date}</span>
-                    <div className="genre-buttons">{genreButtons}</div> {/* Отображение кнопок */}
+                    <div className="genre-buttons">{genreButtons}</div>
                     <p>{movie.overview}</p>
                     <RateStars
                       id={movie.id}
