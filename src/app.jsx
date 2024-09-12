@@ -96,7 +96,6 @@ class App extends Component {
             })
             .catch((error) => {
               this.onError(error);
-              this.setState({ loading: false, error: true });
             });
         });
       })
@@ -134,7 +133,6 @@ class App extends Component {
       })
       .catch((error) => {
         this.onError(error);
-        this.setState({ loading: false, error: true });
       });
   }
 
@@ -170,11 +168,6 @@ class App extends Component {
       .catch((error) => {
         console.error('Ошибка при оценке фильма:', error);
       });
-  };
-  getGenre = () => {
-    this.movieService.getGenersList().then((body) => {
-      console.log(body);
-    });
   };
 
   render() {
