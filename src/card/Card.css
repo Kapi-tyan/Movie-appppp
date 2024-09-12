@@ -1,0 +1,70 @@
+.description-film{
+    width: 80%;
+    height:25% ;
+}
+
+.data-film{
+    color: #827E7E;
+    margin-bottom: 5px;
+}
+
+.wrapper-loading{
+    width: 70vw;
+    margin: 0 50% 0 50%;
+}
+
+.error-alert{
+    width: 30%;
+    margin: 10% 30% 0 25%;
+}
+
+div.ant-card-body{
+    padding:0 !important;
+}
+.card-rating {
+    display: flex;
+    border: 3px solid #E90000;
+    min-width: 35px;
+    min-height: 35px;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    justify-self: end;
+    margin-left: 15em;
+    margin-top: -3em;
+}
+
+.card-rating.orange {
+    border-color: #E97E00;
+}
+
+.card-rating.yellow {
+    border-color: #E9D100;
+}
+
+.card-rating.green {
+    border-color: #66E900;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+}
+.card{
+    width: 70% !important;
+    height: auto;
+    font-family: "inter Ui";  
+}
+.card-movie{
+    margin-bottom: 20px;
+}
+.card-movie__img{
+    display: block;
+    width: 183px;
+    height: auto;
+}
+.genre-button{
+    margin-right: 2px;
+}
