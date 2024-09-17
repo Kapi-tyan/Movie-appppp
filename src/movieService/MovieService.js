@@ -5,9 +5,6 @@ class MovieService {
   async getDataFromServer(url, options = {}) {
     try {
       const res = await fetch(url, options);
-      if (!res.ok) {
-        throw new Error(`${res.status}`);
-      }
       const data = await res.json();
       return data;
     } catch (err) {
@@ -46,19 +43,20 @@ class MovieService {
     const data = await this.getDataFromServer(url, options);
     if (data.success) {
       return;
-    } else {
+    } else if (data.error) {
       throw new Error('Ошибка при оценке фильма');
+    } else {
+      return [];
     }
   }
 
   async getRatedMovies(guestSessionId) {
     const url = `${this.baseUrl}guest_session/${guestSessionId}/rated/movies?api_key=${this.apiKey}`;
     const body = await this.getDataFromServer(url);
-    if (body.results) {
+    if (body.results && body) {
       return body.results;
-    } else {
-      throw new Error('Ошибка при получении оцененных фильмов');
     }
+    return [];
   }
   async getGenersList() {
     const url = `${this.baseUrl}genre/movie/list?api_key=${this.apiKey}`;
@@ -67,6 +65,15 @@ class MovieService {
       return body.genres;
     } else {
       throw new Error('Ошибка при получении списка жанров');
+    }
+  }
+  async getItemPagination(searchQuery = 'return') {
+    const url = `${this.baseUrl}search/movie?api_key=${this.apiKey}&include_adult=false&query=${searchQuery}&page=1`;
+    const body = await this.getDataFromServer(url);
+    if (body && body.total_results) {
+      return body.total_results;
+    } else {
+      throw new Error('Ошибка при получении количества страниц');
     }
   }
 }
